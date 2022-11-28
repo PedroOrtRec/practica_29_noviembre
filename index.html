@@ -18,38 +18,11 @@
         <!-- INICIO FORMULARIO -->
 
         <aside class="col-12 col-md-4 p-4">
-            <div class="card mb-2">
-                <h5 class="card-title bg-success p-1 text-white">Búsqueda por edad</h5>
-                <form action="" id="ageForm">
-                    <div>
-                        <label for="form-label" for="minAge">Edad Mínima</label>
-                        <input type="number" class="form-control" id="minAge" name="minAge">
-                    </div>
-                    <div>
-                        <label for="form-label" for="maxAge">Edad Máxima</label>
-                        <input type="number" class="form-control" id="maxAge" name="maxAge">
-                    </div>
-                    <input type="submit" class="btn btn-success mt-3" value="Buscar">
-                </form>
-            </div>
-            <div class="card mb-2">
-                <h5 class="card-title bg-success p-1 text-white">Búsqueda por dolencia</h5>
-                <form action="" id="diagnosisForm">
-                    <div>
-                        <label for="form-label" for="diagnosis">Dolencia</label>
-                        <input type="text" class="form-control" id="diagnosis" name="diagnosis">
-                    </div>
-                </form>
-            </div>
-            <div class="card">
-                <h5 class="card-title bg-success p-1 text-white">Búsqueda por datos personales</h5>
-                <form action="" id="searcherForm">
-                    <div>
-                        <label for="form-label" for="searcher">Nombre / Apellido / NUSS</label>
-                        <input type="text" class="form-control" id="searcher" name="searcher">
-                    </div>
-                    <input type="submit" class="btn btn-success mt-3" value="Buscar">
-                </form>
+            <div class="card p-1">
+                <h5 class="card-title bg-success text-white p-1 rounded border border-info">Filtrar por Edad</h5>
+                <input type="number" placeholder="Edad Mínima" id="minAge">
+                <input type="number" placeholder='Edad Máxima' class="mt-1" id="maxAge">
+                <button class="btn btn-success p-1 mt-1 shadow" id="buttonAge">Filtrar</button>
             </div>
         </aside>
 
