@@ -9,18 +9,59 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/dat_hospital.js"></script>
-
 </head>
 
 <body>
-    <main>
-        <h1>Buscador Pacientes</h1>
+    <div class="container mt-4"></div>
+    <div class="row">
 
-    </main>
-    <aside>
+        <!-- INICIO FORMULARIO -->
+
+        <aside class="col-12 col-md-4 p-4">
+            <div class="card mb-2">
+                <form action="" id="ageForm">
+                    <div>
+                        <label for="form-label" for="minAge">Edad Mínima</label>
+                        <input type="number" class="form-control" id="minAge" name="minAge">
+                    </div>
+                    <div>
+                        <label for="form-label" for="maxAge">Edad Máxima</label>
+                        <input type="number" class="form-control" id="maxAge" name="maxAge">
+                    </div>
+                    <input type="submit" class="btn btn-success mt-3" value="Buscar">
+                </form>
+            </div>
+            <div class="card mb-2">
+                <form action="" id="diagnosisForm">
+                    <div>
+                        <label for="form-label" for="diagnosis">Dolencia</label>
+                        <input type="text" class="form-control" id="diagnosis" name="diagnosis">
+                    </div>
+                </form>
+            </div>
+            <div class="card p-2">
+                <form action="" id="searcherForm">
+                    <div>
+                        <label for="form-label" for="searcher">Nombre / Apellido / NUSS</label>
+                        <input type="text" class="form-control" id="searcher" name="searcher">
+                    </div>
+                    <input type="submit" class="btn btn-success mt-3" value="Buscar">
+                </form>
+            </div>
+        </aside>
+
+        <!-- FIN FORMULARIO -->
+
+        <!-- INICIO LISTADO -->
+
+        <section id="patientsList" class="col-12 col-md-8 p-4">
+
+        </section>
+
+        <!-- FIN LISTADO -->
 
 
-    </aside>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
