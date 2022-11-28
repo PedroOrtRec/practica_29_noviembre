@@ -5,6 +5,18 @@ const diagnosisForm = document.querySelector('#diagnosisForm');
 const searcherForm = document.querySelector('#searcherForm');
 const sectionPatients = document.querySelector('#patientsList');
 
+var patientsList = patients;
+
+//FILTROS
+
+searcherForm.addEventListener('submit', filterSearcher)
+
+function filterSearcher(event) {
+    event.preventDefault();
+    console.log(event.target.searcher.value);
+
+}
+
 //PINTAR LA LISTA DE PACIENTES
 
 function printPatients(pPatientsList, pDom) {
@@ -14,11 +26,17 @@ function printPatients(pPatientsList, pDom) {
 function printOnePatient(pPatient, pDom) {
 
     let article = document.createElement('article');
-    article.classList.add('card', 'p-2', 'mb-3');
+    article.classList.add('card', 'mb-1');
     let h3 = document.createElement('h3');
+    h3.classList.add('bg-info');
+    let articleDiv = document.createElement('div');
+    articleDiv.classList.add('p-1');
     let p1 = document.createElement('p');
     let p2 = document.createElement('p');
     let p3 = document.createElement('p');
+    p1.classList.add('mb-1');
+    p2.classList.add('mb-1');
+    p3.classList.add('mb-1');
 
 
 
@@ -28,29 +46,21 @@ function printOnePatient(pPatient, pDom) {
     p3.innerText = 'Dolencia: ' + pPatient.diagnosis;
 
 
-    article.appendChild(h3);
-    article.appendChild(p1);
-    article.appendChild(p2);
-    article.appendChild(p3);
+    article.appendChild(h3)
+    article.appendChild(articleDiv);
+    articleDiv.appendChild(p1);
+    articleDiv.appendChild(p2);
+    articleDiv.appendChild(p3);
 
     pDom.appendChild(article);
 }
 
-printPatients(patients, sectionPatients);
-
-
-//FILTROS
-
-
-searcherForm.addEventListener('submit', getDataSearcher)
-
-function getDataSearcher(event) {
-    event.preventDefault()
-    console.log(event.target.searcher.value)
-}
+printPatients(patientsList, sectionPatients);
 
 
 
+
+console.log(patientsList)
 
 
 
