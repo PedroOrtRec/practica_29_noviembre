@@ -3,11 +3,17 @@ const minAge = document.querySelector('#minAge');
 const maxAge = document.querySelector('#maxAge');
 const buttonAge = document.querySelector('#buttonAge');
 
+const diagnosisSelect = document.querySelector('#diagnosisSelect');
+
+const searcherInput = document.querySelector('#searcher');
+const resetSearcher = document.querySelector('#resetSearcher')
+
 const sectionPatients = document.querySelector('#patientsList');
 
 let patientsList = patients;
 
-//FILTROS
+
+//FILTRO DE EDAD
 
 buttonAge.addEventListener('click', getDataAge)
 
@@ -29,6 +35,78 @@ function getDataAge() {
 
 function filterByAge(pPatientsList, pMin, pMax) {
     return pPatientsList.filter(patient => patient.age >= pMin && patient.age <= pMax);
+}
+
+
+
+// CREAR LISTA FILTRADA DE DOLENCIAS
+
+function filterDiagnosis() {
+
+    let diagnosisList = patientsList.map(patient => patient.diagnosis);
+
+    diagnosisList = diagnosisList.filter((oneDiagnosis, index) => diagnosisList.indexOf(oneDiagnosis) === index);
+
+    addDiagnosis(diagnosisList);
+}
+//AÑADIR LAS DOLENCIAS AL SELECTOR
+
+function addDiagnosis(pDiagnosisList) {
+    for (oneDiagnosis of pDiagnosisList) {
+        diagnosisSelect.innerHTML += `<option value="${oneDiagnosis}">${oneDiagnosis}</option>`
+    }
+
+}
+
+filterDiagnosis()
+
+
+// FILTRO POR DOLENCIA
+
+diagnosisSelect.addEventListener('change', getDataDiagnosis)
+
+function filterByDiagnosis(pPatientsList, pDiagnosis) {
+    return pPatientsList.filter(patient => patient.diagnosis === pDiagnosis);
+}
+
+function getDataDiagnosis() {
+    let diagnosis = diagnosisSelect.value;
+
+    if (diagnosis !== 'Todas') {
+
+        let filterPatient = filterByDiagnosis(patientsList, diagnosis);
+        printPatients(filterPatient, sectionPatients);
+    } else {
+        printPatients(patientsList, sectionPatients);
+    }
+
+}
+
+// FILTRO POR DATOS PERSONALES
+searcherInput.addEventListener('input', getDataSearcher)
+
+function getDataSearcher() {
+    let searcher = searcherInput.value;
+
+    if (searcher !== '') {
+        let filterPatient = filterBySearcher(patientsList, searcher);
+        printPatients(filterPatient, sectionPatients);
+    } else {
+        printPatients(patientsList, sectionPatients);
+    }
+}
+
+function filterBySearcher(pPatientsList, pSearch) {
+    return pPatientsList.filter(patient => patient.name.toLowerCase().includes(pSearch.toLowerCase()) || patient.surname.toLowerCase().includes(pSearch.toLowerCase()) || patient.nuss.toLowerCase().includes(pSearch.toLowerCase()));
+}
+
+//RESETEAR BUSCADOR
+
+resetSearcher.addEventListener('click', resetSearch);
+
+function resetSearch() {
+    searcherInput.value = '';
+    printPatients(patientsList, sectionPatients);
 }
 
 //PINTAR LA LISTA DE PACIENTES

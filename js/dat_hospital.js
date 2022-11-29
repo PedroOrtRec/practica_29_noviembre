@@ -94,7 +94,7 @@ const patients = new Array(
         name: 'Bernarda',
         surname: 'Moreno',
         age: 23,
-        diagnosis: 'Alitosis',
+        diagnosis: 'Infección del Fistro Duodenal',
         nuss: 'P327420'
     },
 

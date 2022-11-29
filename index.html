@@ -19,10 +19,21 @@
 
         <aside class="col-12 col-md-4 p-4">
             <div class="card p-1">
-                <h5 class="card-title bg-success text-white p-1 rounded border border-info">Filtrar por Edad</h5>
-                <input type="number" placeholder="Edad Mínima" id="minAge">
-                <input type="number" placeholder='Edad Máxima' class="mt-1" id="maxAge">
+                <h5 class="card-title bg-success text-white p-1 rounded">Filtrar Por Edad</h5>
+                <input type="number" placeholder="Edad Mínima" min="0" max="120" id="minAge">
+                <input type="number" placeholder='Edad Máxima' class="mt-1" id="maxAge" min="0" max="120">
                 <button class="btn btn-success p-1 mt-1 shadow" id="buttonAge">Filtrar</button>
+            </div>
+            <div class="card p-1 mt-3">
+                <h5 class="card-title bg-success text-white p-1 rounded">Filtrar Por Dolencia</h5>
+                <select name="diagnosisSelect" id="diagnosisSelect" class="form-select mt-4">
+                    <option selected>Todas</option>
+                </select>
+            </div>
+            <div class="card p-1 mt-3">
+                <h5 class="card-title bg-success text-white p-1 rounded">Filtrar por Datos Personales</h5>
+                <input type="text" placeholder="Nombre / Apellidos / NUSS" class="mt-3 p-1" id="searcher">
+                <button class="btn btn-success p-1 mt-1 shadow" id="resetSearcher">Borrar</button>
             </div>
         </aside>
 
