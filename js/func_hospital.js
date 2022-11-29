@@ -2,20 +2,21 @@
 const minAge = document.querySelector('#minAge');
 const maxAge = document.querySelector('#maxAge');
 const buttonAge = document.querySelector('#buttonAge');
-
 const diagnosisSelect = document.querySelector('#diagnosisSelect');
-
 const searcherInput = document.querySelector('#searcher');
 const resetSearcher = document.querySelector('#resetSearcher')
-
 const sectionPatients = document.querySelector('#patientsList');
-
 let patientsList = patients;
+
+//EVENTOS
+
+buttonAge.addEventListener('click', getDataAge);
+diagnosisSelect.addEventListener('change', getDataDiagnosis);
+searcherInput.addEventListener('input', getDataSearcher);
+resetSearcher.addEventListener('click', resetSearch);
 
 
 //FILTRO DE EDAD
-
-buttonAge.addEventListener('click', getDataAge)
 
 function getDataAge() {
     let min = minAge.value;
@@ -37,8 +38,6 @@ function filterByAge(pPatientsList, pMin, pMax) {
     return pPatientsList.filter(patient => patient.age >= pMin && patient.age <= pMax);
 }
 
-
-
 // CREAR LISTA FILTRADA DE DOLENCIAS
 
 function filterDiagnosis() {
@@ -49,6 +48,7 @@ function filterDiagnosis() {
 
     addDiagnosis(diagnosisList);
 }
+
 //AÑADIR LAS DOLENCIAS AL SELECTOR
 
 function addDiagnosis(pDiagnosisList) {
@@ -60,10 +60,7 @@ function addDiagnosis(pDiagnosisList) {
 
 filterDiagnosis()
 
-
 // FILTRO POR DOLENCIA
-
-diagnosisSelect.addEventListener('change', getDataDiagnosis)
 
 function filterByDiagnosis(pPatientsList, pDiagnosis) {
     return pPatientsList.filter(patient => patient.diagnosis === pDiagnosis);
@@ -83,7 +80,6 @@ function getDataDiagnosis() {
 }
 
 // FILTRO POR DATOS PERSONALES
-searcherInput.addEventListener('input', getDataSearcher)
 
 function getDataSearcher() {
     let searcher = searcherInput.value;
@@ -101,8 +97,6 @@ function filterBySearcher(pPatientsList, pSearch) {
 }
 
 //RESETEAR BUSCADOR
-
-resetSearcher.addEventListener('click', resetSearch);
 
 function resetSearch() {
     searcherInput.value = '';
@@ -153,16 +147,3 @@ function printOnePatient(pPatient, pDom) {
 }
 
 printPatients(patientsList, sectionPatients);
-
-
-
-
-
-
-
-/* <article class="card p-2">
-<h3>Nombre y Apellido del Paciente</h3>
-<p>Edad del Paciente</p>
-<p>Numero de la Seguridad Social</p>
-<p>Dolencia</p>
-</article> */
